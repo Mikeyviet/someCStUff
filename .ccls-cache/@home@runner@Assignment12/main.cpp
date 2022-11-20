@@ -32,17 +32,19 @@ const int SIZE_OF_NAME = 20;
 const int SIZE_OF_MONEY = 10;
 
 
-// structure to hold the input from user
+// payment structure to hold customer payment information and used inside the
+// customer structure
 struct Payment{
   char balance[SIZE_OF_MONEY];
   char pastDue[SIZE_OF_MONEY];
   char paymentDate[SIZE_OF_MONEY];
 };
 
+// customer structure to hold customer name and also contains the Payment structure
 struct Customer{
   char firstName[SIZE_OF_NAME];
   char lastName[SIZE_OF_NAME];
-  Payment paymentInfo;
+  Payment paymentInfo;					
 };
 
 // function prototypes
