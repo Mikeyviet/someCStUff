@@ -51,19 +51,37 @@ struct Customer{
 Customer getInfo();               // get customer information
 void printLetter(Customer payee); // controls the printing of form
 
+void printLine(Customer info, int position);
+
 /****************************************************************
  *                      main function
  ****************************************************************/
 int main()
 {
-  // Create customer object for the functions to be executed on
-  Customer information;
+	// local variables
+	char again;			// hold character (Y/N) for while loop
 
-  // Call function to get information from user
-  information = getInfo();
+	// set the character to Y so the do/while loop will execute at least once
+	again = 'Y';
+	do{
+		
+			// Create customer object for the functions to be executed on
+			Customer information;
+		
+			// Call function to get information from user
+			information = getInfo();
+		
+			// Call fuction to start the printing of the form letter
+			printLetter(information);
 
-  // Call fuction to start the printing of the form letter
-  printLetter(information);
+			// prompt the user to ask if they would like to print another letter
+			cout << "\n\nDo you want to print another letter?  Enter 'Y' for yes or 'N' for no: ";
+			cin >> again;
+
+	// checks for the condition to exit loop
+	}while(toupper(again) == 'Y');
+
+	cout << "\n\nThank you. Have a nice day.\n\n";
 
   return 0;
 } // end of main
@@ -96,7 +114,6 @@ Customer getInfo()
   return input;
 } // end of getInfo()
 
-
 /****************************************************************
  * @name printLetter()
  * @param payee The structure that holds all the fields for the
@@ -107,11 +124,31 @@ Customer getInfo()
  ****************************************************************/
 void printLetter(Customer payee)
 {
+	// variable to hold the print position 
+	int print_position = 0;
 
-  cout << "\n"
+	// This function will be un-commented when the function is fully defined
+	// printLine(payee, print_position);
+ 
+	cout << "\n"
        << part1 << payee.firstName << " " << payee.lastName << ",\n"
        << part2 << payee.paymentInfo.balance << part3 << payee.paymentInfo.pastDue << "." << part4 <<
         payee.paymentInfo.paymentDate << "." << part5;
   cout << part6 << part7 << part8 << endl;
 
+}
+
+/****************************************************************
+ * @name printLine()
+ * @param info The structure that holds all the fields for the
+ * information to be stored
+ * @param position this holds the last position that was printed 
+ * on the letter so that we know where to continue.
+ * @details the function controls the printing of the of the form
+ * letter. It will make function call to printLine once the fields
+ * receive input.
+ ****************************************************************/
+void printLine(Customer info, int position)
+{
+	
 }
