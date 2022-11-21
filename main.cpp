@@ -31,7 +31,6 @@ const char part8[] = "Blue Star Electric";
 const int SIZE_OF_NAME = 20;
 const int SIZE_OF_MONEY = 10;
 
-
 // payment structure to hold customer payment information and used inside the
 // customer structure
 struct Payment{
@@ -48,8 +47,8 @@ struct Customer{
 };
 
 // function prototypes
-Customer getInfo();               // get customer information
-void printLetter(Customer payee); // controls the printing of form
+	Customer getInfo();               		// get customer information
+	void printLetter(Customer payee); 		// controls the printing of form
 
 void printLine(Customer info, int position);
 
@@ -59,7 +58,8 @@ void printLine(Customer info, int position);
 int main()
 {
 	// local variables
-	char again;			// hold character (Y/N) for while loop
+	// hold character (Y/N) for while loop
+	char again;		
 
 	// set the character to Y so the do/while loop will execute at least once
 	again = 'Y';
@@ -81,12 +81,18 @@ int main()
 	// checks for the condition to exit loop
 	}while(toupper(again) == 'Y');
 
+	cout << "\nYou have selected 'No' to not continue." << endl;
+	cout << "End of program." << endl;
 	cout << "\n\nThank you. Have a nice day.\n\n";
 
   return 0;
 } // end of main
 
-/****************************************************************
+/***************************************************************
+*							   function defintions
+****************************************************************/
+
+/***************************************************************
  * @name getInfo()
  * @return the structure named input
  * @details This function prompts the user to enter their name
@@ -136,7 +142,7 @@ void printLetter(Customer payee)
         payee.paymentInfo.paymentDate << "." << part5;
   cout << part6 << part7 << part8 << endl;
 
-}
+}// end printLetter
 
 /****************************************************************
  * @name printLine()
@@ -151,4 +157,4 @@ void printLetter(Customer payee)
 void printLine(Customer info, int position)
 {
 	
-}
+}// end printLine
